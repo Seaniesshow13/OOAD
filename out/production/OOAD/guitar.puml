@@ -1,0 +1,89 @@
+@startuml
+
+enum Wood{
+CEDAR
+ALDER
+MAHOGANY
+}
+
+enum Type{
+ACOUSTIC
+ELECTRIC
+}
+
+enum Style{
+A
+F
+}
+
+enum Builder{
+FENDER
+GIBSON
+MARTINS
+COLLINGS
+}
+enum NumStrings{
+SIX
+TWELVE
+}
+
+class Inventory{
+-List guitars;
++addGuitar()
++getGuitar(): Guitar
++search(): List
+}
+
+class Guitar{
++getSpec(): GuitarSpec
+}
+
+class GuitarSpec{
+-numStrings int;
++getNumStrings(): int
+matches(GuitarSpec):boolean
+
+}
+
+class instrument{
+serialNumber:String
+price: double
+getSerialNumber(): String
+getPrice(): double
+setPrice(float)
+}
+
+class mandolin{
+getSpec():MandolinSpec
+}
+
+class mandolinSpec{
+getStyle(): Style
+matchs(MandolinSpec):boolean
+}
+
+class instrumentSpec{
+getBuilder(): Builder
+getModel(): String
+getType(): Type
+getBackWood(): Wood
+getTopWood(): Wood
+matchs(instrumentSpec): boolean
+
+}
+
+Inventory --> instrument
+Guitar --> GuitarSpec
+mandolin --> mandolinSpec
+instrument <|-- Guitar
+instrument <|-- mandolin
+instrumentSpec <|-- GuitarSpec
+instrumentSpec <|-- mandolinSpec
+instrumentSpec --> Builder
+instrumentSpec --> Type
+instrumentSpec --> Wood
+mandolinSpec --> Style
+instrument o-- instrumentSpec
+
+
+@end
