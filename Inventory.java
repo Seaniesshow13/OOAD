@@ -9,8 +9,8 @@ public class Inventory {
         guitars = new LinkedList();
     }
 
-    public void addGuitar(String serialNumber, double price, GuitarSpec spec){
-        Guitar guitar = new Guitar(serialNumber,price,spec);
+    public void addGuitar(String serialNumber, double price, InstrumentSpec spec){
+        Instrument guitar = new Instrument(serialNumber,price,spec);
         guitars.add(guitar);
     }
 
@@ -25,13 +25,13 @@ public class Inventory {
     }
 
 
-    public List search(GuitarSpec searchSpec) {
+    public List search(InstrumentSpec searchSpec) {
         List matchingGuitars = new LinkedList();
 
         for (Iterator i = guitars.iterator(); i.hasNext();) {
-            Guitar guitar = (Guitar) i.next();
-            if(guitar.getSpec().matches(searchSpec)){
-                GuitarSpec guitarSpec = guitar.getSpec();
+            Instrument guitar = (Instrument) i.next();
+            if(Instrument.getSpec().matches(searchSpec)){
+                InstrumentSpec Spec = guitar.getSpec();
             }
             matchingGuitars.add(guitar);
 
