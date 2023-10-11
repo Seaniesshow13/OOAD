@@ -38,6 +38,8 @@ public class FindGuitarTester {
 
         spec = new InstrumentSpec(Builder.GIBSON,"Stratocaster",Type.ELECTRIC,NumStrings.TWELVE, Wood.MAHOGANY, Wood.CEDAR);
         inventory.addGuitar("V00003" , 1500.00, spec);
+
+        //spec = new InstrumentSpec(Builder.GIBSON,"mando",Style.F,Wood.ALDER,Wood.MAHOGANY);
     }
 
 
